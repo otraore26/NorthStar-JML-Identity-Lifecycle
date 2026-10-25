@@ -1,3 +1,5 @@
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/558221c92c236dc62a95ecc346471e5a898fb2ce/Images/NorthStar%20Service%20Desk.png">
+
 ## Ticketing Dashboard
 
 The NorthStar ticketing simulator tracks three fictional identity lifecycle requests:
