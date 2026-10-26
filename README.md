@@ -1,6 +1,5 @@
 # NorthStar Medical Group — Identity Lifecycle Management
-
-![NorthStar JML project banner](images/northstar-jml-banner.png)
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/b6a2af8c5737dc3a2b59c5ab18224b694dbca1de/Images/NorthStar%20Medical%20Identity%20Lifecycle.png">
 
 **Joiner • Mover • Leaver | Active Directory • Microsoft Entra ID**
 
