@@ -47,6 +47,8 @@ The simulator supports:
 Three requests arrive in the IT service queue: a new hire, a department
 transfer, and an employee departure.
 
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/e4a44e66d6e8e7bfe219dd39e5bdfc630cda6047/Images/Northstar-JML-Ticket-Dashboard.png">
+
 | Ticket | Scenario | Employee | Requested Change | Lab Status |
 |---|---|---|---|---|
 | RITM0010048 | Joiner | Sarah Johnson | Onboard as Talent Acquisition Specialist in HR | Planned |
