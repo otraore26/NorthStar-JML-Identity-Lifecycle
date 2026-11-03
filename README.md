@@ -83,6 +83,17 @@ recruiting resources before her first day.
 
 ### Verification Evidence
 
+### Joiner Walkthrough Video
+
+Watch my walkthrough of Sarah Johnson’s onboarding in the
+NorthStar Medical Group homelab, covering Active Directory
+account creation, Microsoft Entra ID synchronization,
+HR-Users membership verification, and ticket documentation.
+
+🎥 [Watch the Joiner walkthrough — Sarah Johnson](https://www.loom.com/share/41d857d728bf4d8db4d54f7d8195cd64)
+
+
+
 Document the AD account properties, HR-Users membership,
 synchronized Entra ID account, and resource-access test results.
 
