@@ -136,8 +136,6 @@ within the HR OU of NMGM.COM.
 - **Pre-Windows 2000 logon name:** NMGM\sjohnson
 - **Target OU:** HR
 
-![Sarah’s AD account details](images/sarah-ad-new-user-details.png)
-
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-ad-new-user-details.png">
 
 *Evidence: Identity details entered before completing account creation.*
@@ -148,8 +146,6 @@ I reviewed Sarah’s name, logon name, and target OU.
 The account was configured to require a password change
 at the next logon.
 
-![Sarah’s AD account creation review](images/sarah-ad-account-creation-review.png)
-
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-ad-account-creation-review.png">
 *Evidence: The final review screen before selecting Finish.*
 
@@ -159,8 +155,6 @@ I located Sarah Johnson’s profile in Microsoft Entra ID
 and reviewed her identity properties.
 
 Her profile displayed her name and the user type Member.
-
-![Sarah’s Entra ID identity properties](images/sarah-entra-id-identity-properties.png)
 
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-identity-properties.png">
 *Evidence: Sarah’s account was present in Microsoft Entra ID.*
@@ -175,7 +169,7 @@ I reviewed Sarah’s account status and synchronization details.
 - **On-premises SAM account name:** sjohnson
 - **On-premises domain:** NMGM.com
 
-![Sarah’s Entra ID synchronization details](images/sarah-entra-id-sync-verification.png)
+
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-sync-verification.png">
 *Evidence: Sarah’s enabled cloud account showed synchronization
 from the on-premises directory.*
@@ -185,7 +179,7 @@ from the on-premises directory.*
 I opened the HR-Users group and confirmed that Sarah Johnson
 appeared in its Members list.
 
-![Sarah’s HR-Users membership](images/sarah-entra-id-hr-users-membership.png)
+
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-hr-users-membership.png">
 *Evidence: Sarah was listed as a member of HR-Users in Entra ID.*
 
@@ -194,7 +188,7 @@ appeared in its Members list.
 I documented the onboarding work in ticket RITM0010048,
 including the fulfillment checklist, work notes, and closure notes.
 
-![Sarah’s onboarding checklist and closure notes](images/sarah-onboarding-checklist-closure-notes.png)
+
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-onboarding-ticket-details.png">
 *Evidence: The simulated ticket recorded the onboarding work
 and reported verification results.*
@@ -204,7 +198,7 @@ and reported verification results.*
 I checked the NorthStar Service Desk dashboard and confirmed
 that Sarah’s request appeared as Approved and Closed Complete.
 
-![Sarah’s closed onboarding ticket](images/northstar-sarah-onboarding-ticket-closed.png)
+
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-onboarding-checklist-closure-notes.png">
 *Evidence: The simulator displayed the completed ticket status.*
 
