@@ -88,41 +88,6 @@ synchronized Entra ID account, and resource-access test results.
 
 [View the Joiner walkthrough](docs/joiner.md)
 
-## Mover — James Whitfield
-
-### Business Request
-
-James Whitfield is transferring from **HR Recruiter** to
-**Finance Coordinator**, reporting to **David Chen, Finance Manager**.
-
-His new responsibilities include coordinating invoice documentation,
-maintaining financial records, and supporting Finance operations.
-
-His access must reflect his new responsibilities. Previous HR access
-must be removed unless a specific, time-limited exception is approved.
-
-**Ticket:** RITM0010049  
-**Department Change:** HR → Finance  
-**Group Change:** HR-Users → Finance-Users
-
-### Planned Actions
-
-- Review the simulated transfer request and manager approvals.
-- Record existing account attributes and group memberships.
-- Update department to Finance.
-- Update job title to Finance Coordinator.
-- Update manager to David Chen.
-- Move the account from the HR OU to the Finance OU.
-- Remove HR-Users membership and add Finance-Users membership.
-- Review any other access associated with the previous role.
-- Verify synchronized attributes and memberships in Entra ID.
-- Test Finance access and removal of previous HR access.
-
-> Moving an account to another OU does not automatically change
-> its security group memberships. These changes must be performed
-> and verified separately.
-
-### Verification Evidence
 The following screenshots document Sarah Johnson’s account setup,
 Microsoft Entra ID synchronization, and HR-Users membership.
 
@@ -201,6 +166,43 @@ that Sarah’s request appeared as Approved and Closed Complete.
 
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-onboarding-checklist-closure-notes.png">
 *Evidence: The simulator displayed the completed ticket status.*
+
+
+## Mover — James Whitfield
+
+### Business Request
+
+James Whitfield is transferring from **HR Recruiter** to
+**Finance Coordinator**, reporting to **David Chen, Finance Manager**.
+
+His new responsibilities include coordinating invoice documentation,
+maintaining financial records, and supporting Finance operations.
+
+His access must reflect his new responsibilities. Previous HR access
+must be removed unless a specific, time-limited exception is approved.
+
+**Ticket:** RITM0010049  
+**Department Change:** HR → Finance  
+**Group Change:** HR-Users → Finance-Users
+
+### Planned Actions
+
+- Review the simulated transfer request and manager approvals.
+- Record existing account attributes and group memberships.
+- Update department to Finance.
+- Update job title to Finance Coordinator.
+- Update manager to David Chen.
+- Move the account from the HR OU to the Finance OU.
+- Remove HR-Users membership and add Finance-Users membership.
+- Review any other access associated with the previous role.
+- Verify synchronized attributes and memberships in Entra ID.
+- Test Finance access and removal of previous HR access.
+
+> Moving an account to another OU does not automatically change
+> its security group memberships. These changes must be performed
+> and verified separately.
+
+### Verification Evidence
 
 
 
