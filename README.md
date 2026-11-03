@@ -93,12 +93,6 @@ HR-Users membership verification, and ticket documentation.
 🎥 [Watch the Joiner walkthrough — Sarah Johnson](https://www.loom.com/share/41d857d728bf4d8db4d54f7d8195cd64)
 
 
-
-Document the AD account properties, HR-Users membership,
-synchronized Entra ID account, and resource-access test results.
-
-[View the Joiner walkthrough](docs/joiner.md)
-
 The following screenshots document Sarah Johnson’s account setup,
 Microsoft Entra ID synchronization, and HR-Users membership.
 
@@ -171,12 +165,20 @@ and reported verification results.*
 
 #### 7. Confirmed the Ticket’s Final Status
 
-I checked the NorthStar Service Desk dashboard and confirmed
-that Sarah’s request appeared as Approved and Closed Complete.
+I reviewed the NorthStar Service Desk dashboard and confirmed
+that Sarah Johnson’s onboarding request, RITM0010048, was
+marked Approved and Closed Complete.
+
+The Mover request for James Whitfield and the Leaver request
+for Lisa Park remained open and pending approval.
+
 
 
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-onboarding-checklist-closure-notes.png">
-*Evidence: The simulator displayed the completed ticket status.*
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/aa3431e997e5859990984bbb3bf41d5cd021e93d/Images/Northstar-sarah-onboarding-ticket-closed2.png">
+*Evidence: The simulated service desk recorded Sarah’s onboarding
+ticket as completed.*
 
 
 ## Mover — James Whitfield
