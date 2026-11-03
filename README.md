@@ -119,7 +119,46 @@ at the next logon.
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-ad-account-creation-review.png">
 *Evidence: The final review screen before selecting Finish.*
 
-#### 3. Checked Sarah’s Account in Microsoft Entra ID
+### 3.Troubleshooting — Sarah’s HR-Users Membership
+
+#### Problem
+
+During Sarah Johnson’s onboarding, I created her account in
+Active Directory and added her to the **HR-Users** group.
+However, her membership was not immediately visible in
+Microsoft Entra ID.
+
+I needed to verify that the on-premises changes had synchronized
+to the cloud before completing the onboarding documentation.
+
+#### Investigation
+
+I confirmed that Sarah was already a member of **HR-Users**
+in Active Directory. I then triggered a delta synchronization
+to process recent directory changes.
+
+#### Resolution
+
+On the server running Microsoft Entra Connect Sync, I opened
+**Windows PowerShell as Administrator** and ran:
+
+```powershell
+Import-Module ADSync
+Start-ADSyncSyncCycle -PolicyType Delta
+```
+
+The first command loaded the ADSync module. The second requested
+a delta synchronization cycle.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/514cdc0adf5deb5597451b9a386d8150cd8f1390/Images/Sarah-entra-connect-delta-sync-success.png">
+
+*Evidence: PowerShell returned Success, confirming that the
+synchronization request was accepted. This result alone did
+not confirm that Sarah’s membership had synchronized.*
+
+
+
+#### 4. Checked Sarah’s Account in Microsoft Entra ID
 
 I located Sarah Johnson’s profile in Microsoft Entra ID
 and reviewed her identity properties.
@@ -129,7 +168,7 @@ Her profile displayed her name and the user type Member.
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-identity-properties.png">
 *Evidence: Sarah’s account was present in Microsoft Entra ID.*
 
-#### 4. Verified On-Premises Synchronization
+#### 5. Verified On-Premises Synchronization
 
 I reviewed Sarah’s account status and synchronization details.
 
@@ -144,7 +183,7 @@ I reviewed Sarah’s account status and synchronization details.
 *Evidence: Sarah’s enabled cloud account showed synchronization
 from the on-premises directory.*
 
-#### 5. Verified HR-Users Membership in Entra ID
+#### 6. Verified HR-Users Membership in Entra ID
 
 I opened the HR-Users group and confirmed that Sarah Johnson
 appeared in its Members list.
@@ -153,7 +192,7 @@ appeared in its Members list.
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-hr-users-membership.png">
 *Evidence: Sarah was listed as a member of HR-Users in Entra ID.*
 
-#### 6. Reviewed the Onboarding Documentation
+#### 7. Reviewed the Onboarding Documentation
 
 I documented the onboarding work in ticket RITM0010048,
 including the fulfillment checklist, work notes, and closure notes.
@@ -163,7 +202,7 @@ including the fulfillment checklist, work notes, and closure notes.
 *Evidence: The simulated ticket recorded the onboarding work
 and reported verification results.*
 
-#### 7. Confirmed the Ticket’s Final Status
+#### 8. Confirmed the Ticket’s Final Status
 
 I reviewed the NorthStar Service Desk dashboard and confirmed
 that Sarah Johnson’s onboarding request, RITM0010048, was
