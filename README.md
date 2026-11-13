@@ -260,6 +260,8 @@ must be removed unless a specific, time-limited exception is approved.
 ### Mover Walkthrough Video
 
 Watch my walkthrough of James Whitfield’s transfer from HR to Finance in the NorthStar Medical Group homelab, covering Active Directory updates, group membership changes, Microsoft Entra ID synchronization, and ticket documentation.
+
+
 [View the Mover walkthrough](https://www.loom.com/share/546542d3732d4edf88225add532c759b)
 
 The following screenshots document James Whitfield’s department transfer, updated group memberships, and synchronized account information.
@@ -270,6 +272,127 @@ I located James Whitfield’s account in the Finance OU within Active Directory 
 - **Employee:** James Whitfield
 - **Domain:** NMGM.COM
 - **Target OU:** Finance
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/1-Verification%20James%20Whitfield%20in%20the%20Finance%20OU.png">
+
+
+
+*Evidence: James’s account appeared in the Finance OU following the transfer.*
+
+#### 2. Updated James’s Job Title and Department
+
+I updated James’s account information under **Properties → Organization** to reflect his new responsibilities.
+
+- **Job title:** Finance Coordinator
+- **Department:** Finance
+- **Required manager:** David Chen
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/2-James_Whitefield_Updated_Title_and_Department.png">
+
+*Evidence: The Organization tab displayed Finance Coordinator and Finance. The Manager field was blank in this capture, so it does not verify the required manager update.*
+
+#### 3. Verified Active Directory Group Memberships
+
+I reviewed James’s **Member Of** tab after updating his departmental group memberships.
+
+**Finance-Users** appeared in the membership list, and **HR-Users** was no longer listed.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/3-James_Whitfield_Finance_Group_Membership_Verified.png">
+
+*Evidence: James’s displayed direct memberships included Finance-Users and did not include HR-Users. Other access paths require separate review.*
+
+#### 4. Initiated a Delta Synchronization
+
+I opened PowerShell on the Entra Connect server and ran the following commands:
+
+```powershell
+Import-Module ADSync
+Start-ADSyncSyncCycle -PolicyType Delta
+```
+
+The command returned **Success**.
+
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/4-%20Entra_Connect_Delta_Sync_Iniatiated.png">
+
+*Evidence: The synchronization request was accepted. The following cloud checks verify the resulting account changes.*
+
+#### 5. Verified Finance-Users Membership in Entra ID
+
+I opened **Finance-Users → Members** in Microsoft Entra ID and confirmed that James Whitfield appeared in the direct members list.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/5-James_Whitefield_Entra_ID_Finance_Group_Membership_Verified.png">
+
+*Evidence: James was listed as a direct member of Finance-Users in Entra ID.*
+
+#### 6. Reviewed James’s Entra ID Profile
+
+I located James Whitfield’s user profile and reviewed his identity information.
+
+- **Display name:** James Whitfield
+- **User principal name:** jwhitfield@NMGM.onmicrosoft.com
+- **User type:** Member
+
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/6-James_Whitfield%20_Entra_ID_User_Profile_Overview.png">
+
+*Evidence: James’s cloud account was present and identified for further verification.*
+
+#### 7. Verified Synchronized Job Information
+
+I reviewed the **Job Information** section of James’s Entra ID profile.
+
+The department displayed **Finance**, and the job title displayed **Finance Coordinat…**, truncated by the portal layout.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/7-James_Whitfield_Entra_ID_Updated_Title_and_Department.png">
+
+*Evidence: The cloud profile reflected the Finance department and updated job title.*
+
+#### 8. Reviewed the Transfer Ticket Details
+
+I reviewed simulated ticket **RITM0010049**, which documented James’s transfer from HR Recruiter to Finance Coordinator.
+
+- **Requested for:** James Whitfield
+- **Request type:** Mover
+- **Requested by:** David Chen
+- **Assigned to:** Ousmane Traore
+- **Displayed state:** Closed complete
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/8-%20James_Whitfield_Mover_Ticket_Closed.png">
+
+*Evidence: This intermediate capture shows the transfer request and closed state.*
+
+#### 9. Documented the Fulfillment and Closure Notes
+
+I recorded the transfer work in the ticket’s fulfillment checklist, work note, and closure notes.
+
+The documentation covered account attribute changes, the Finance OU move, and replacement of HR-Users membership with Finance-Users membership.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/9-James_Whitfield_fulfillment_Checklist_and%20_Closure.png">
+
+*Evidence: The simulated ticket recorded the implementation work and reported verification results. Technical screenshots provide separate supporting evidence.*
+
+#### 10. Confirmed the Ticket’s Final Dashboard Status
+
+I reviewed the NorthStar Service Desk dashboard and confirmed that James Whitfield’s transfer request, **RITM0010049**, was marked **Approved** and **Closed complete**.
+
+Sarah Johnson’s Joiner request was also completed. Lisa Park’s Leaver request remained open and pending approval at the time of this capture.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/be344138ec6404d1f685be1ab31decd4a6176dfd/Images/10-NorthStar_JML_Dashboard_Joiner_and_Mover_Completed_Leaver_Pending.png">
+
+*Evidence: The simulated service desk displayed James’s Mover request as approved and completed.*
+
+### Verification Scope
+
+These screenshots support the Finance OU location, updated job information, AD group changes, synchronization initiation, and Finance-Users membership in Entra ID.
+
+The following checks are not demonstrated by this screenshot set:
+
+- David Chen configured as James’s manager in AD and Entra ID.
+- Removal of HR-Users membership verified directly in Entra ID.
+- Successful access to an approved Finance resource.
+- Denied access to a restricted HR resource.
+
 
 
 ## Leaver — Lisa Park
@@ -341,7 +464,7 @@ Planned actions will remain separate from completed and verified work.
 - [ ] Complete and verify Lisa’s offboarding.
 - [ ] Add screenshots and detailed walkthroughs.
 - [ ] Export completed ticket records.
-
+ 
 ## Learning Objectives
 
 - Manage employee identities across AD and Entra ID.
