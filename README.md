@@ -237,6 +237,7 @@ must be removed unless a specific, time-limited exception is approved.
 **Department Change:** HR → Finance  
 **Group Change:** HR-Users → Finance-Users
 
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7010f0fc858739f8b37edd774737560b17679dbe/Images/sarah-entra-id-identity-properties.png">
 ### Planned Actions
 
 - Review the simulated transfer request and manager approvals.
@@ -256,10 +257,20 @@ must be removed unless a specific, time-limited exception is approved.
 
 ### Verification Evidence
 
+### Mover Walkthrough Video
 
-
-
+Watch my walkthrough of James Whitfield’s transfer from HR to Finance in the NorthStar Medical Group homelab, covering Active Directory updates, group membership changes, Microsoft Entra ID synchronization, and ticket documentation.
 [View the Mover walkthrough](https://www.loom.com/share/546542d3732d4edf88225add532c759b)
+
+The following screenshots document James Whitfield’s department transfer, updated group memberships, and synchronized account information.
+
+#### 1. Verified James’s Account in the Finance OU
+I located James Whitfield’s account in the Finance OU within Active Directory Users and Computers.
+
+- **Employee:** James Whitfield
+- **Domain:** NMGM.COM
+- **Target OU:** Finance
+
 
 ## Leaver — Lisa Park
 
