@@ -397,6 +397,12 @@ The following checks are not demonstrated by this screenshot set:
 
 ## Leaver — Lisa Park
 
+### Leaver Walkthrough Video
+
+Watch my walkthrough of Lisa Park’s offboarding in the NorthStar Medical Group homelab, covering Active Directory account disablement, Entra Connect synchronization, and ticket documentation.
+
+
+
 ### Business Request
 
 In this scenario, Lisa Park is leaving the Operations department.
@@ -425,7 +431,111 @@ on-premises and cloud environments.
 Document disabled account states, session-revocation actions,
 access-removal results, and sign-in checks.
 
-[View the Leaver walkthrough](docs/leaver.md)
+### Leaver Walkthrough Video
+
+Watch my walkthrough of Lisa Park’s offboarding in the NorthStar Medical Group homelab, covering Active Directory account disablement, Entra Connect synchronization, and ticket documentation.
+
+🎥 [Watch the Leaver walkthrough — Lisa Park](https://www.loom.com/share/38dcb13bf2b24cd391e019733e5beae8)
+
+The following screenshots document Lisa’s account status before and after disablement, synchronization initiation, and the simulated offboarding ticket.
+
+#### 1. Located Lisa’s Active Directory Account
+
+I located Lisa Park’s account in Active Directory Users and Computers.
+
+- **Employee:** Lisa Park
+- **Domain:** NMGM.COM
+- **Observed OU:** Finance
+
+The original scenario referenced Operations, while the directory showed Lisa in Finance. This discrepancy should be reconciled with the simulated HR request before implementation.
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/1-Lisa_Park_Active_Directory_Finance_OU.png">
+
+*Evidence: Lisa’s account was located in the Finance OU.*
+
+#### 2. Verified the Account Was Enabled Before Offboarding
+
+I used PowerShell to identify Lisa’s username and check her account status.
+
+```powershell
+Import-Module ActiveDirectory
+
+Get-ADUser -Filter "DisplayName -eq 'Lisa Park'" |
+    Select-Object Name, SamAccountName, Enabled
+```
+
+The results showed:
+
+- **Name:** Lisa Park
+- **SAM account name:** lpark
+- **Enabled:** True
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/2-Lisa_Park_AD_Account_Enabled_Before_Offboarding.png">
+
+*Evidence: Lisa’s AD account was enabled before the disable action.*
+
+#### 3. Disabled Lisa’s Active Directory Account
+
+I disabled Lisa’s account using her verified SAM account name.
+
+```powershell
+Disable-ADAccount -Identity "lpark"
+```
+
+I then checked the account again:
+
+```powershell
+Get-ADUser -Identity "lpark" |
+    Select-Object Name, SamAccountName, Enabled
+```
+
+The result changed to **Enabled: False**.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/4-Lisa_Park_AD_Account_Disabled_Verified_PowerShell.png">
+
+*Evidence: PowerShell confirmed that Lisa’s on-premises AD account was disabled.*
+
+#### 4. Initiated Synchronization to Microsoft Entra ID
+
+On the Entra Connect server, I imported the ADSync module and initiated a delta synchronization.
+
+```powershell
+Import-Module ADSync
+Start-ADSyncSyncCycle -PolicyType Delta
+```
+
+The command returned **Success**.
+
+#### 4. Initiated Synchronization to Microsoft Entra ID
+
+On the Entra Connect server, I imported the ADSync module and initiated a delta synchronization.
+
+```powershell
+Import-Module ADSync
+Start-ADSyncSyncCycle -PolicyType Delta
+```
+
+The command returned **Success**.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/5-Lisa_Park_Offboarding_Entra_Connect_Delta_Sync_Initiated.png">
+
+*Evidence: The synchronization request was accepted.
+
+#### 5. Reviewed the Offboarding Ticket and Checklist
+
+I reviewed simulated ticket **RITM0010050**, which recorded Lisa’s offboarding request.
+
+- **Requested for:** Lisa Park
+- **Request type:** Leaver
+- **Requested by:** Sandra Torres
+- **Assigned to:** Ousmane Traore
+- **Approval:** Approved
+- **State:** Closed complete
+- **Recorded effective time:** November 12, 2026, at 5:02 PM, as displayed in the simulator’s local time
+
+The fulfillment checklist covered account disablement, access removal, cloud verification, session revocation, and retention documentation.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/6-NorthStar_JML_Dashboard_All_Requests_Approved_and_Completed.png">
+
 
 ## Lab Environment
 
