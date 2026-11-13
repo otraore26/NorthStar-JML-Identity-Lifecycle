@@ -259,7 +259,7 @@ must be removed unless a specific, time-limited exception is approved.
 
 
 
-[View the Mover walkthrough](docs/mover.md)
+[View the Mover walkthrough](https://www.loom.com/share/546542d3732d4edf88225add532c759b)
 
 ## Leaver — Lisa Park
 
