@@ -494,16 +494,6 @@ The result changed to **Enabled: False**.
 
 *Evidence: PowerShell confirmed that Lisa’s on-premises AD account was disabled.*
 
-#### 4. Initiated Synchronization to Microsoft Entra ID
-
-On the Entra Connect server, I imported the ADSync module and initiated a delta synchronization.
-
-```powershell
-Import-Module ADSync
-Start-ADSyncSyncCycle -PolicyType Delta
-```
-
-The command returned **Success**.
 
 #### 4. Initiated Synchronization to Microsoft Entra ID
 
@@ -541,7 +531,16 @@ This invalidated her refresh tokens and browser session cookies. Existing access
 
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/bcabf150e254e02341cc049aef54cdece7022a2f/Images/Lisa%20's%20Audit%20log%20IP%20address.png">
 
-#### 7. Reviewed the Offboarding Ticket and Checklist
+#### 7. Documented the Work and Closure Notes
+
+I documented Lisa Park’s offboarding in simulated ticket **RITM0010050**, including account disablement, Entra ID verification, cloud session revocation, access removal, and reported sign-in testing.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/7344e45afb51e10e322362ae4f75479c8823013e/Images/4-Lisa_Park_Offboarding_Entra_Connect_Delta_Sync_Initiated.png">
+
+*Evidence: The simulated ticket recorded the offboarding actions and reported verification results in its work and closure notes.*
+
+
+#### 8. Reviewed the Offboarding Ticket and Checklist
 
 I reviewed simulated ticket **RITM0010050**, which recorded Lisa’s offboarding request.
 
