@@ -520,7 +520,28 @@ The command returned **Success**.
 
 *Evidence: The synchronization request was accepted.
 
-#### 5. Reviewed the Offboarding Ticket and Checklist
+#### 5. Verified Lisa’s Disabled Account in Microsoft Entra ID
+
+I opened Lisa Park’s profile in Microsoft Entra ID and reviewed her account settings and synchronization status.
+
+- **Account enabled:** No
+- **On-premises sync enabled:** Yes
+- **Department:** Finance
+- **Job title:** Accounts Payable
+
+Lisa’s account remained visible because it was disabled, not deleted.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/bcabf150e254e02341cc049aef54cdece7022a2f/Images/Lisa_Park_Entra_ID_Account_Disabled_Verified.png">
+
+#### 6. Revoked Lisa’s Cloud Sign-In Sessions
+
+I opened Lisa Park’s user profile in Microsoft Entra ID, selected **Revoke sessions**, and confirmed the action.
+
+This invalidated her refresh tokens and browser session cookies. Existing access tokens or application-managed sessions may remain valid until expiration or separate termination.
+
+<img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/bcabf150e254e02341cc049aef54cdece7022a2f/Images/Lisa%20's%20Audit%20log%20IP%20address.png">
+
+#### 7. Reviewed the Offboarding Ticket and Checklist
 
 I reviewed simulated ticket **RITM0010050**, which recorded Lisa’s offboarding request.
 
