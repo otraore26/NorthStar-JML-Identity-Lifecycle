@@ -557,6 +557,9 @@ The fulfillment checklist covered account disablement, access removal, cloud ver
 <img width="1000" alt="image" src="https://github.com/otraore26/NorthStar-JML-Identity-Lifecycle/blob/3a7a8a92a0bcdb350c4fcf769a204a525f287fad/Images/6-NorthStar_JML_Dashboard_All_Requests_Approved_and_Completed.png">
 
 
+
+
+
 ## Lab Environment
 
 | Component | Purpose |
@@ -565,56 +568,86 @@ The fulfillment checklist covered account disablement, access removal, cloud ver
 | NMGM.COM | Active Directory domain |
 | Microsoft Entra ID | Cloud identity management |
 | Microsoft Entra Connect Sync | Synchronization between AD and Entra ID |
-| Departmental Security Groups | Role-based access assignments |
-| NorthStar Service Desk | Simulated requests, approvals, and work notes |
+| Departmental Security Groups | Department-based group membership and access assignments |
+| Windows PowerShell | Account status checks, account disablement, and synchronization initiation |
+| NorthStar Service Desk | Fictional ticketing simulator for requests, approvals, work notes, and closure documentation |
 
 ## Documentation and Evidence
 
 | Location | Contents |
 |---|---|
-| `README.md` | Project overview, scenarios, and ticket dashboard |
-| `docs/joiner.md` | Onboarding walkthrough and verification |
-| `docs/mover.md` | Department-transfer walkthrough and verification |
-| `docs/leaver.md` | Offboarding walkthrough and verification |
-| `images/` | Project banner and lab screenshots |
-| `tickets/` | Exported simulated ticket records |
+| `README.md` | Project overview, JML scenarios, walkthroughs, video links, and verification evidence |
+| `Images/` | Lab screenshots and ticket documentation |
 
-Each walkthrough will document the request, actions performed,
-verification results, and any troubleshooting or limitations.
+The walkthroughs describe the requests, actions performed, verification
+results, and limitations for each lifecycle stage.
 
-Screenshots will include captions explaining what they demonstrate.
-Planned actions will remain separate from completed and verified work.
+Screenshots include captions explaining what they demonstrate.
+Ticket notes record reported actions, while technical screenshots
+provide supporting verification evidence.
+
+Directory attributes and group memberships are verified separately
+from resource-level access. A successful synchronization command
+confirms that the request was accepted; cloud verification confirms
+the resulting changes.
+
+### Completed Scenarios
+
+| Stage | Employee | Ticket | Documented outcome |
+|---|---|---|---|
+| Joiner | Sarah Johnson | RITM0010048 | Created an AD account and verified Entra ID synchronization and HR-Users membership |
+| Mover | James Whitfield | RITM0010049 | Updated department and title, moved the account to the Finance OU, and verified Finance-Users membership |
+| Leaver | Lisa Park | RITM0010050 | Disabled the AD account, verified disabled status in Entra ID, and documented cloud session revocation |
+
+The NorthStar Service Desk dashboard shows all three simulated requests
+as **Approved** and **Closed complete**.
+
+### Evidence Limitations
+
+- James’s manager update requires additional verification evidence;
+  the supplied AD screenshot shows a blank Manager field.
+- James’s removal from HR-Users is shown in AD; a separate Entra ID
+  membership check should be included.
+- Lisa’s original scenario referenced Operations, while the directory
+  screenshots show Finance / Accounts Payable. This discrepancy is
+  documented and should be reconciled in the scenario.
+- Resource-access tests, blocked sign-in tests, and remaining
+  application-access removal require their own supporting evidence.
+- Session revocation does not guarantee that every existing
+  application session ends immediately.
 
 ## Project Progress
 
 - [x] Define the fictional JML scenarios.
 - [x] Prepare the NorthStar Service Desk simulator and scenario tickets.
-- [ ] Complete and verify Sarah’s onboarding.
-- [ ] Complete and verify James’s department transfer.
-- [ ] Complete and verify Lisa’s offboarding.
-- [ ] Add screenshots and detailed walkthroughs.
-- [ ] Export completed ticket records.
- 
+- [x] Document Sarah’s onboarding and directory verification.
+- [x] Document James’s transfer and available verification evidence.
+- [x] Document Lisa’s account disablement and cloud session revocation.
+- [x] Add screenshots, captions, and detailed walkthroughs.
+- [x] Record simulated approvals, work notes, and closure notes.
+- [x] Confirm all three requests appear completed in the simulator.
+- [ ] Resolve the remaining evidence gaps listed above.
+- [ ] Export and save completed ticket records in `tickets/`.
+
 ## Learning Objectives
+
+Through this lab, I practiced how to:
 
 - Manage employee identities across AD and Entra ID.
 - Apply least privilege during onboarding and role changes.
-- Prevent unnecessary access from accumulating after transfers.
-- Coordinate account disablement and access removal.
-- Verify synchronization and distinguish it from resource-access testing.
-- Maintain clear technical documentation and ticket records.
+- Review and remove access associated with previous responsibilities.
+- Coordinate account disablement and cloud session revocation.
+- Verify synchronization separately from resource-access testing.
+- Use PowerShell to inspect and disable accounts.
+- Maintain technical documentation and simulated ticket records.
+- Identify inconsistencies and distinguish reported results from
+  directly demonstrated evidence.
 
 ## Previous Projects
 
-This project builds on two earlier home labs:
-
-1. **[Basic Employee Onboarding — Active Directory and RBAC](https://github.com/otraore26/Basic-Employee-Onboarding-AD-RBAC-)**  
-   Established departmental organizational units, employee accounts,
-   and security groups.
-
-2. **[NorthStar Hybrid Identity — AD to Entra ID Synchronization](https://github.com/otraore26/NorthStar-Hybrid-Identity-AD-Entra-Sync)**  
-   Connected on-premises Active Directory to Microsoft Entra ID
-   and verified synchronized users and groups.
+- [Basic Employee Onboarding and AD RBAC](https://github.com/otraore26/Basic-Employee-Onboarding-AD-RBAC-)
+- [Hybrid Identity — AD to Entra ID Synchronization](https://github.com/otraore26/NorthStar-Hybrid-Identity-AD-Entra-Sync)
+- [Windows Server 2025 and Windows 11 Enterprise Lab](https://github.com/otraore26/Windows-Server-2025-Windows-11-Enterprise-Lab)
 
 ## Author
 
